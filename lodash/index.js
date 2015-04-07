@@ -91,7 +91,8 @@ suite('Lodash', function() {
     });
 
     test('Challenge 7✯✯✯', function(){
-        var a = [1];
+        var a = [1],
+            b = [1];
 
         // your code goes here
         // как видно из примера в массив можно занести лишь первые 2 значения 
@@ -103,6 +104,12 @@ suite('Lodash', function() {
         a.push(4);
         a.push(5);
 
+        b.push(2);
+        b.push(3);
+        b.push(4);
+        b.push(5);
+
         assert.deepEqual(a, [1, 2, 3]);
+        assert.deepEqual(b, [1, 2, 3, 4 ,5]);
     });
 });

@@ -145,7 +145,6 @@ suite('Lodash', function() {
         }();
 
         Object.defineProperty(a, "push", {
-            enumerable: false,
             value: newPush
         });
 
@@ -176,7 +175,6 @@ suite('Lodash', function() {
         restrictedPush = _.before(3, function(number) { Array.prototype.push.call(this, number); });
 
         Object.defineProperty(a, "push", {
-            enumerable: false,
             value: restrictedPush
         });
 

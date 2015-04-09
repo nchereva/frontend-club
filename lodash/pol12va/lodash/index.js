@@ -146,8 +146,6 @@ suite('Lodash', function() {
 
         Object.defineProperty(a, "push", {
             enumerable: false,
-            configurable: true,
-            writable: true,
             value: newPush
         });
 
@@ -179,8 +177,6 @@ suite('Lodash', function() {
 
         Object.defineProperty(a, "push", {
             enumerable: false,
-            configurable: true,
-            writable: true,
             value: restrictedPush
         });
 

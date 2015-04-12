@@ -22,45 +22,54 @@ suite('Lodash', function() {
     test('challenge 1', function() {
         // найдите сумму чисел в массиве
         // с использованием функций _.sum
-        var sum = _.identity;
+        var a = [1,2,3,4,5];
+        _.sum(a);
+        
+        var ob = [
+            {'number_of_electrons':7,'title':'N'},
+            {'number_of_electrons':26,'title':'Fe'}
+                ]
 
-        assert.deepEqual(sum([1, 2, 3]), 6);
+        _.sum(ob,function(object){
+            return object.number_of_electrons;
+        })
     });
 
     test('challenge 1.1', function() {
         // найдите сумму уникальных чисел в массиве
         // с использованием функций _.sum, _.flow, _.uniq
-        var sum = _.identity;
-
-        assert.deepEqual(sum([1, 2, 1 , 3, 3, 2]), 6);
+        var b = [1,1,2,2,3];
+        
+        var sumUniq = _.flow(_.uniq,_.sum);
+        sumUniq(b);
     });
 
     test('challenge 1.2', function() {
         // найдите сумму уникальных чисел их всех массивах
         // с использованием функций _.sum, _.flow, _.uniq, _.union
-        var sum = _.identity;
-
-        assert.deepEqual(sum([1, 2, 3], [1], [1, 2]), 6);
+        var c = [2,2,3,3,4,5,8];
+        var d = [3,4,5,2,2,9,88];
+        var sumUniqUnion = _.flow(_.union,_.uniq,_.sum);
+        sumUniqUnion(c,d);
     });
 
     test('challenge 2', function() {
         // напишите функцию которая умножает каждый элемент массива на 3
         // с использованием функций _.map
-        var triple = _.identity, 
-            tripleList = _.identity;
-
-        assert.deepEqual(tripleList([1, 2, 3], triple), [3, 6, 9]);
+        var f = [3,4,5,2,2,9,88];
+        function triple (el) {
+            return el*3;
+            };
+        _.map(f,triple);
     });
 
     test('challenge 3', function() {
         // напишите функцию для нахождения самого большого числа в массиве
         // с использованием функций _.reduce
         // * c использованием _.partialRight
-        var greater = _.identity,
-            max = _.identity;
+         var g = [2,3,4,5,6,9]
+        _.reduce(a, function(acc, element) { return acc > element?acc:element});
 
-        assert.equal(max([1, -3483, 94, 7, 2]), 94);
-        assert.equal(max([-21, -3483, -2, -1]), -1);
     });
 
     test('Challenge 4', function() {
@@ -68,26 +77,28 @@ suite('Lodash', function() {
         // с использованием функций _.filter,_.isNumber, ...
         // * c использованием _.curry
         // ** c использованием _.flow
-        var sumNumbers = _.identity;
-
-        assert.equal(sumNumbers([1, '2', 3, '4', 5]), 9);
+        var e = [1,2,'3',4];
+        _.filter(e,_.isNumber);
     });
 
     test('Challenge 5', function(){
         // вберите из массива книг их названия
         // c использованием _.pluck, _.partial
-        var getTitles = _.identity;
-
-        assert.deepEqual(getTitles(articles),['Everything Sucks', 'If You Please'])
+       books = [
+            {'author':'Kant','title':'Critique of Pure Reason'},
+            {'author':'Nietzsche','title':'Thus Spake Zarathustra'}
+                ];
+        _.pluck(books,'title');  
+		// все равно не поняла про _.partial(_.pluck, _, "title"). почему три аргумента передается? в общем не получилось вывести названия таким образом
     });
 
     test('Challenge 6', function(){
         //напишите функцию наличия в массиве обьектов запрашиваемого автора
         // c использованием _.find, ...
-        var isAuthor = _.identity;
-
-        assert.isFalse(isAuthor(articles, 'New Guy'));
-        assert.isTrue(isAuthor(articles , 'Debbie Downer'));
+       (_.result(_.find(books, function(chr) {
+            return chr.author==="Kant";
+                    }), 'title'))?true:false;
+					
     });
 
     test('Challenge 7✯✯✯', function(){

@@ -1,0 +1,19 @@
+{
+  "name": "frontend-club",
+  "version": "0.0.0",
+  "description": "Repository for frontend club",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/.bin/mocha -u tdd lodash/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nchereva/frontend-club.git"
+  },
+  "author": "Nikolay Cherevatenko",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/nchereva/frontend-club/issues"
+  },
+  "homepage": "https://github.com/nchereva/frontend-club"
+}

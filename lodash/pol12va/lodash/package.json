@@ -1,0 +1,16 @@
+{
+  "name": "lodash-homework",
+  "version": "0.0.0",
+  "description": "lodash homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha -u tdd index.js"
+  },
+  "author": "Nikolay Cherevatenko",
+  "dependencies": {
+    "chai": "^2.1.2",
+    "lodash": "^3.6.0",
+    "mocha": "^2.2.1"
+  },
+  "license": "BSD"
+}

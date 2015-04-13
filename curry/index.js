@@ -8,7 +8,7 @@ suite('Curry', function () {
 
 	setup(function () {
 		// your implementation of curry
-		curry = curry = function(func, arity) {
+		curry = function(func, arity) {
 +			var curriedArgs = [],
 +				argsLength,
 +				innerCurry = function() {

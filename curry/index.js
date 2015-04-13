@@ -8,7 +8,34 @@ suite('Curry', function () {
 
 	setup(function () {
 		// your implementation of curry
-		curry = _.curry;
+		curry = curry = function(func, arity) {
++			var curriedArgs = [],
++				argsLength,
++				innerCurry = function() {
++					var args = [].slice.call(arguments),
+						executionArgs = curriedArgs.slice();
++
++					args.forEach(function(cur) {
++						executionArgs.push(cur);
++					});
++						
++					if (executionArgs.length < argsLength) {
+						args.forEach(function(cur) {
++							curriedArgs.push(cur);
++						});
++						return innerCurry;
++					}
++
++					return func.apply(this, executionArgs);
++				};
++
++			if (typeof func !== 'function') {
++				throw Error("Argument func is not a function");
++			}
++			argsLength = isNaN(arity) ? func.length : arity;
++
++			return innerCurry;
++		};
 	});
 
 	test('test of function currying', function () {

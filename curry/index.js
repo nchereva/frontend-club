@@ -8,31 +8,7 @@ suite('Curry', function () {
 
 	setup(function () {
 		// your implementation of curry
-		curry = function(func, arity) {
-			var curriedArgs = [],
-				argsLength,
-				innerCurry = function() {
-					var i,
-						args = [].slice.call(arguments);
-
-					args.forEach(function(cur) {
-						curriedArgs.push(cur);
-					});
-						
-					if (curriedArgs.length < argsLength) {
-						return innerCurry;
-					}
-
-					return func.apply(this, curriedArgs);
-				};
-
-			if (typeof func !== 'function') {
-				throw Error("Argument func is not a function");
-			}
-			argsLength = isNaN(arity) ? func.length : arity;
-
-			return innerCurry;
-		};
+		curry = _.curry;
 	});
 
 	test('test of function currying', function () {

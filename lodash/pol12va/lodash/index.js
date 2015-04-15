@@ -68,9 +68,9 @@ suite('Lodash', function() {
         // с использованием функций _.filter,_.isibilityNumber, ...
         // * c использованием _.curry
         // ** c использованием _.flow
-        var filterNumbers = _.curry(_.filter)(_.isNumber),
+        var filterNumbers = _.curry(_.filter)(_, _.isNumber, this),
             sumNumbers = _.flow(filterNumbers, _.sum);
-        
+      
         assert.equal(sumNumbers([1, '2', 3, '4', 5, 6]), 15);
     });
 

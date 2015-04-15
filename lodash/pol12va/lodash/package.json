@@ -4,7 +4,7 @@
   "description": "lodash homework",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha -u tdd index.js"
+    "test": "nodejs node_modules/.bin/mocha -u tdd index.js"
   },
   "author": "Nikolay Cherevatenko",
   "dependencies": {

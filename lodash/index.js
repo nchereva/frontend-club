@@ -67,7 +67,7 @@ suite('Lodash', function() {
 
         var greater = function(acc, element) {
             return acc > element?acc:element};
-        var max = _.reduce;
+        var max = _.partialRight(_.reduce, greater);
 
         assert.equal(max([1, -3483, 94, 7, 2]), 94);
         assert.equal(max([-21, -3483, -2, -1]), -1);
@@ -88,7 +88,7 @@ suite('Lodash', function() {
         // вберите из массива книг их названия
         // c использованием _.pluck, _.partial
 
-        var getTitles = _.pluck;
+        var getTitles = _.partialRight(_.pluck,'title');
 
         assert.deepEqual(getTitles(articles),['Everything Sucks', 'If You Please'])
 	  });

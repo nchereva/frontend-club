@@ -55,7 +55,7 @@ suite('Lodash', function() {
         var triple = function(el) {
             return el*3;
         };
-        var tripleList = _.map(triple);
+        var tripleList = _.map(_,triple);
 
         assert.deepEqual(tripleList([1, 2, 3], triple), [3, 6, 9]);
     });
@@ -67,7 +67,7 @@ suite('Lodash', function() {
 
         var greater = function(acc, element) {
             return acc > element?acc:element};
-            max = _.reduce(_,greater);
+        var max = _.reduce(_,greater);
 
         assert.equal(max([1, -3483, 94, 7, 2]), 94);
         assert.equal(max([-21, -3483, -2, -1]), -1);
@@ -88,7 +88,7 @@ suite('Lodash', function() {
         // вберите из массива книг их названия
         // c использованием _.pluck, _.partial
 
-        var getTitles = _.pluck(_,'title');
+        var getTitles = _.pluck(articles,'title');
 
         assert.deepEqual(getTitles(articles),['Everything Sucks', 'If You Please'])
 	  });

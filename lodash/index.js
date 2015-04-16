@@ -104,17 +104,7 @@ suite('Lodash', function() {
         // остальные игнорируются
         // на этот раз без подсказок
 
-        newPush = function(elem) {
-            var counter = 0;
-
-            return function(elem) {
-                if (counter < maxPushCount) {
-                    counter++;
-                    [].push.call(this, elem);
-                }
-            };
-        }();
-
+        newPush = _.before(3, a.push);
         Object.defineProperty(a, "push", {
             value : newPush
         });

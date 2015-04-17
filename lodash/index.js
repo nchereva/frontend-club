@@ -86,7 +86,7 @@ suite('Lodash', function() {
         //напишите функцию наличия в массиве обьектов запрашиваемого автора
         // c использованием _.find, ...
         var isAuthor = function(collection, name) { 
-            return (_.find(collection, function(cur) { return cur.author.name === name; } )) ? true : false;
+            return (_.find(collection, { author: { name: name } } )) ? true : false;
         };
 
         assert.isFalse(isAuthor(articles, 'New Guy'));
